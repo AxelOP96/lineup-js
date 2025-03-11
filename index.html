@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LineUp JS</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <main>
@@ -19,27 +20,39 @@
             <div class="container">
                 <div class="goalkeeper">
                     <div class="photo"></div>
-                    <select id="goalkeeper" name="goalkeeper">
-                        <!-- <option value="">Brey</option>
-                        <option value="">Marchesin</option>
-                        <option value="">Javi Garcia</option>
-                        <option value="">Romero</option> -->
-                    </select>
+                    <select id="goalkeeper" name="goalkeeper" data-player></select>
                 </div>
                 <div class="defenders">
-                    <select class="defenders" id="defenders" name="defenders" multiple size="4"></select>
+                    <select class="defender" name="defender" data-player></select>
+                    <select class="defender" name="defender" data-player></select>
+                    <select class="defender" name="defender" data-player></select>
+                    <select class="defender" name="defender" data-player></select>
                     
                 </div>
                 <div class="midfielders">
-                    <select class="midfielders" id="midfielders" name="midfielders" multiple></select>
-                    <select class="midfielders" id="midfielders" name="midfielders" multiple></select>
-                    <select class="midfielders" id="midfielders" name="midfielders" multiple></select>
+                    <select class="midfielder"  name="midfielders" data-player></select>
+                    <select class="midfielder"  name="midfielders" data-player></select>
+                    <select class="midfielder"  name="midfielders" data-player></select>
+                    <select class="midfielder"  name="midfielders" data-player></select>
                 </div>
                 <div class="attackers">
-                    <select class="attackers" id="attackers" name="attackers" multiple></select>
-                    <select class="attackers" id="attackers" name="attackers" multiple></select>
-                    <select class="attackers" id="attackers" name="attackers" multiple></select>
+                    <select class="attacker"  name="attackers" data-player></select>
+                    <select class="attacker"  name="attackers" data-player></select>
+                    
                 </div>
+            </div>
+            <div class="game">
+                <!-- <span id="arquero"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span> -->
             </div>
         </section>
     </main>
