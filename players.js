@@ -10,32 +10,24 @@ const $arquero = d.getElementById("goalkeeper"),
 $defenders = d.querySelectorAll(".defender"),
 $midfielders = d.querySelectorAll(".midfielder"),
 $attackers = d.querySelectorAll(".attacker");
+const $confirm = d.querySelector(".confirm");
+const $checkboxes = d.querySelector(".checkboxes")
 d.addEventListener("DOMContentLoaded", (e)=>{
-    
-    
     players.goalkeeper.forEach( (player) =>{
         const option = d.createElement("option");
         option.innerHTML = `${player}`;
         $arquero.appendChild(option);
     });
     $arquero.firstElementChild.setAttribute("selected", "")
-    players.defenders.forEach( (player) =>{
     
+    players.defenders.forEach( (player) =>{
+        
         $defenders.forEach((defender) =>{
             const option = d.createElement("option");
-            //console.log(defender.previousElementSibling)
-            option.innerHTML = `${player}`;
-            //console.log(players.defenders.indexOf(`${player}`))
-            /* if((option.innerHTML === defender.previousElementSibling.innerHTML)){
-            
-            } */
-            
-            console.log(option.innerHTML)
-            console.log(defender)    
+            option.innerHTML =`${player}`;
             defender.appendChild(option);
             defender.firstElementChild.setAttribute("selected", "")
         })
-        
     });
     
     players.midfielders.forEach( (player) =>{
@@ -56,20 +48,46 @@ d.addEventListener("DOMContentLoaded", (e)=>{
             attacker.appendChild(option);
             attacker.firstElementChild.setAttribute("selected", "")
         })
-         
+        
     });
-    /* const $jugadoresFinales = d.querySelectorAll("option[selected]");
-    $jugadoresFinales.forEach((jugador)=>{
-        const actual = jugador.value;
-        console.log(jugador)
-    }) */
+    //El data index
+    const $jugadoresFinales = d.querySelectorAll("select");
+    
+    $jugadoresFinales.forEach((jugador, index)=>{
+        const checkbox = d.createElement("input");
+        checkbox.setAttribute("type", 'checkbox');
+        checkbox.setAttribute("name", 'defender');
+        checkbox.setAttribute("data-index", index);
+        $checkboxes.appendChild(checkbox);
+    }) 
 });
-d.addEventListener("change", (e)=>{
-    const $jugadoresFinales = d.querySelectorAll("option[selected]");
-    //console.log($jugadoresFinales)
-    $jugadoresFinales.forEach((jugador) =>{
-        const $span = d.createElement("span");
-        $span.textContent = `${jugador.value}`;
-        $field.appendChild($span);
-    })
-})
+d.addEventListener("change", (e) => {
+    if (e.target.type === "checkbox") {
+        const index = e.target.getAttribute("data-index");
+        const select = d.querySelectorAll("select")[index];
+        if (e.target.checked) {
+            select.firstElementChild.setAttribute("selected", ""); 
+        } else {
+            select.firstElementChild.removeAttribute("selected"); 
+        }
+    }
+});
+    d.addEventListener("click", (e) => {
+        if (e.target === $confirm) {
+            const $jugadoresFinales = d.querySelectorAll("select");
+            const allChecked = [...$checkboxes.querySelectorAll("input[type='checkbox']")].every(chk => chk.checked);
+            let position = 0;
+            if (allChecked) {
+                $field.innerHTML = ''; // Limpiar el campo antes de agregar nuevos jugadores
+                $jugadoresFinales.forEach((jugador) => {
+                    const $span = d.createElement("span");
+                    $span.textContent = `${jugador.value}`;
+                    $span.classList.add(`p${position}`);
+                    $field.appendChild($span);
+                    position++;
+                });
+            } else {
+                alert("Por favor, selecciona todos los jugadores.");
+            }
+        }
+    });

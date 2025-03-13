@@ -10,7 +10,7 @@ body{
 .nav{
     background-color:#007bff ; /*#6610f2*/
     color: yellow;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
 }
 #goalkeeper{
@@ -22,7 +22,7 @@ body{
     background-color: #6610f2;
     color: white;
 }
-.defender, .midfielder, .attacker{
+.defender, .midfielder, .attacker, .confirm{
     padding: 1rem;
     outline: none;
     border: none;
@@ -31,27 +31,109 @@ body{
     background-color: #6610f2;
     color: white;
 }
+.confirm{
+    background-color: greenyellow;
+    color: #6610f2;
+}
+.confirm:hover{
+    background-color: rgb(249, 249, 141);
+    color: #007bff;
+}
 .field, ul{
     display: flex;
+    justify-content: space-between;
 }
 li{
     list-style: none;
 }
-.container, .container *{
+.container, .container *, .checkboxes{
     display: flex;
     flex-direction: column;
 
 }
+.checkboxes{
+    gap: 1.4rem;
+    background-color: rgb(189, 250, 189);
+    
+}
 select{
-    width: 200px;
+    width: 150px;
     margin: .15rem;
 }
 .game{
     background-color: rgb(194, 246, 194);
     width: 100%;
-    /* height: calc(100vw - 200px);
-    width: calc(100vh -200px); */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 .none{
     display: none;
+}
+.active{
+    background-color: #6610f2;
+    padding: .5rem;
+}
+input[type="checkbox"]{
+    width: 2rem;
+    height: 2rem;
+}
+span{
+    display: inline-block;
+    padding: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.p0{
+    position: relative;
+    top: 0;
+    left: 450px;
+}
+.p2{
+    position: relative;
+    top: -50px;
+    left: 300px;
+}
+.p3{
+    position: relative;
+    top: -100px;
+    left: 600px;
+
+}
+.p4{
+    position: relative;
+    top:-150px;
+    left: 900px;
+
+}
+.p5{
+    position: relative;
+    top:-100px;
+
+}
+.p6{
+    position: relative;
+    top:-150px;
+    left: 300px;
+
+}
+.p7{
+    position: relative;
+    top: -200px;
+    left: 600px;
+}
+.p8{
+    position: relative;
+    top: -250px;
+    left: 900px;
+}
+.p9{
+    position: relative;
+    top: -150px;
+    left: 350px;
+}
+.p10{
+    position: relative;
+    top: -200px;
+    left: 550px;
 }
